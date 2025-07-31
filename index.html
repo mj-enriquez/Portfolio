@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJ M. Enriquez - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Custom styles for the timeline and navigation, integrated from the provided CSS snippet */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        
+        /* Navigation Link Hover Effect */
+        .nav-link {
+            display: inline-block;
+            padding-bottom: 4px; /* Space for the underline */
+        }
+        
+        .nav-link span {
+            transform: scaleX(0);
+        }
+        
+        .nav-link:hover span,
+        .nav-link.active span {
+            transform: scaleX(1);
+        }
+        
+        /* Dynamic Content Section Management */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+        
+        /* Added a small transition for the feature cards in the About section */
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen font-inter bg-gray-100">
+    <header class="w-full bg-white shadow-sm py-4 px-6 md:px-12 lg:px-24">
+        <div class="max-w-7xl mx-auto flex items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-gray-800 text-2xl font-semibold">&lt;/&gt;</span>
+                <span class="text-gray-800 text-2xl font-semibold">MJ</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-center py-12 px-6 md:px-12 lg:px-24">
+        <div class="main-content-container max-w-7xl mx-auto w-full bg-white p-8 rounded-lg shadow-md mb-8">
+            <!-- Profile Section with Main Image and Text Content -->
+            <div class="profile-section flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-16">
+                <!-- Main Profile Image (left side) -->
+                <div class="flex-shrink-0">
+                    <img src="../images/me.png" alt="MJ M. Enriquez Profile Picture" class="w-48 h-48 rounded-full object-cover shadow-lg">
+                </div>
+
+                <!-- Text Content Section (right side) -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left flex-grow">
+                    <!-- Smaller profile picture for the name section (hidden on larger screens) -->
+                    <img src="https://placehold.co/40x40/007bff/ffffff?text=MJ" alt="MJ M. Enriquez Small Profile Picture" class="w-10 h-10 rounded-full object-cover mb-2 md:hidden">
+                    
+                    <p class="text-gray-700 text-xl mb-2 font-bold">Hi,</p>
+                    <h1 class="text-gray-900 text-4xl md:text-5xl font-bold mb-4">I'm MJ M. Enriquez</h1>
+                    <p class="text-gray-600 text-lg mb-6"></p>
+
+                    <!-- Social Links -->
+                    <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
+                        <a href="https://www.facebook.com/zBonsoy" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f text-2xl"></i>
+                            <div>
+                                <p class="font-medium">MJ Enriquez</p>
+                                <p class="text-sm text-gray-500">https://www.facebook.com/zBonsoy</p>
+                            </div>
+                        </a>
+                        <a href="mailto:mj.enriquezx@gmail.com" class="flex items-center space-x-3 text-gray-700 hover:text-red-600 transition duration-300">
+                            <i class="fas fa-envelope text-2xl"></i>
+                            <p class="font-medium">mj.enriquezx@gmail.com</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Links below the main content, more centralized -->
+        <nav class="w-full flex justify-center py-6 px-6 md:px-12 lg:px-24 bg-white shadow-sm rounded-lg mb-8">
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-12 text-lg">
+                <a href="#about" id="nav-about" class="nav-link text-gray-700 font-medium hover:text-blue-600 transition duration-300 relative group active">
+                    About
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-blue-600 transform scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+                <a href="#resume" id="nav-resume" class="nav-link text-gray-700 font-medium hover:text-blue-600 transition duration-300 relative group">
+                    Resume
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+                <a href="#portfolio" id="nav-portfolio" class="nav-link text-gray-700 font-medium hover:text-blue-600 transition duration-300 relative group">
+                    Portfolio
+                    <span class="absolute left-0 bottom-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Dynamic Content Area -->
+        <div class="dynamic-content-area w-full max-w-7xl bg-white p-8 rounded-lg shadow-md">
+            <!-- About Section (visible by default) -->
+            <div id="about-content" class="content-section active p-4">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">About Me</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Hello! I'm MJ M. Enriquez, a passionate Software Developer with a keen interest in building
+                    innovative and user-friendly applications. My journey in software development began with a
+                    curiosity for how things work and a drive to create solutions that make a difference.
+                    I specialize in web technologies and enjoy bringing ideas to life through clean and efficient code.
+                    I'm always eager to learn new technologies and improve my skills to deliver high-quality software.
+                </p>
+
+                <!-- Skills Section with cards, redesigned to match the provided snippet -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Website Development Card -->
+                    <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4 cursor-pointer transition-all duration-300">
+                        <i class="fas fa-code text-3xl text-blue-600 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Application Development</h3>
+                            <p class="text-gray-600">
+                                Able to build functional and responsive application using Flutter and Firebase with basic database operations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- UI/UX Design Card -->
+                    <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4 cursor-pointer transition-all duration-300">
+                        <i class="fas fa-paint-brush text-3xl text-blue-600 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">UI/UX Design</h3>
+                            <p class="text-gray-600">
+                                Designed user-friendly interfaces using Bootstrap 4, HTML, and CSS for
+                                better accessibility and user experience.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- AI & Image Processing Card -->
+                    <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4 cursor-pointer transition-all duration-300">
+                        <i class="fas fa-robot text-3xl text-blue-600 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Image Processing</h3>
+                            <p class="text-gray-600">
+                                Applied Python to process images for image detection.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Database Integration Card -->
+                    <div class="feature-card bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4 cursor-pointer transition-all duration-300">
+                        <i class="fas fa-database text-3xl text-blue-600 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Database Integration</h3>
+                            <p class="text-gray-600">
+                                Used Firebase and MySQL to connect the systems with databases for storing
+                                and managing user or system data.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resume Section (Redesigned based on the new image) -->
+            <div id="resume-content" class="content-section p-4">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Resume</h2>
+
+                <!-- Education Section -->
+                <div class="mb-8">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i class="fas fa-graduation-cap text-3xl text-gray-800"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Education</h3>
+                        <hr class="flex-grow border-t-2 border-gray-300">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-6">
+                        <div class="text-gray-700">
+                            <p class="font-bold text-lg">2015-2021</p>
+                        </div>
+                        <div class="text-gray-700">
+                            <p class="font-bold text-lg">Lupon Vocational High School</p>
+                            <p class="text-base">Information and Communication Technology - Computer Systems Servicing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                        <div class="text-gray-700">
+                            <p class="font-bold text-lg">2021-2025</p>
+                        </div>
+                        <div class="text-gray-700">
+                            <p class="font-bold text-lg">Davao Oriental State University - DOrSU</p>
+                            <p class="text-base">Bachelor of Science in Information Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Experiences Section -->
+                <div class="mb-8">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i class="fas fa-briefcase text-3xl text-gray-800"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Work Experiences</h3>
+                        <hr class="flex-grow border-t-2 border-gray-300">
+                    </div>
+                    
+                    <div class="text-gray-700">
+                        <p class="font-bold text-lg mb-1">Directorate for Information, Communication, and Technology</p>
+                        <p class="text-base italic mb-3">IT Internship (February 2025 - May 2025)</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                <span class="font-bold">Quantified</span> - Successfully performed data entry for over 2,000 students to create institutional email accounts. Catered an average of 15 student inquiries to their institutional email accounts per day.
+                            </li>
+                            <li>
+                                <span class="font-bold">Unquantified</span> - Performed software QA testing for the DoRSU Student Portal and ISMS, ensuring system functionality and reliability. Assisted the first and second phase of Institutional Enrollment System Training for Faculties and Staffs of DOrSU.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project Experiences Section -->
+                <div>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i class="fas fa-cogs text-3xl text-gray-800"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Project Experiences</h3>
+                        <hr class="flex-grow border-t-2 border-gray-300">
+                    </div>
+
+                    <!-- Project 1 -->
+                    <div class="mb-6">
+                        <p class="font-bold text-lg mb-2">DoRSU: Student Volunteer Directory System</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><span class="font-bold">Technologies:</span> Netbeans, Java, MySQL, Java Derby.</li>
+                            <li>Built a simple object-oriented concept project for NSTP volunteers.</li>
+                            <li>Used MySQL for relational database.</li>
+                            <li>Implemented CRUD features using Java and MySQL queries.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div>
+                        <p class="font-bold text-lg mb-2">BanaScan: Bugtok Disease (Ralstonia solanacearum) Detection in Cardava and Saba Bananas using Deep Learning and GIS Mapping</p>
+                        <p class="text-base mb-2">Detection in Cardava and Saba Bananas using Deep Learning and GIS Mapping</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><span class="font-bold">Technologies:</span> Dart, NoSQL, Python, SQLite</li>
+                            <li>Built an application system for farmers to proactively monitor and manage Bugtok disease in Cardava/Saba banana farms.</li>
+                            <li>Used Python for image processing to identify the infected peduncles.</li>
+                            <li>Used a NoSQL platform (Firebase) for storing data through online.</li>
+                            <li>Used SQLite for storing data even offline.</li>
+                            <li>Included image uploads and interactive map visualization.</li>
+                            <li>Used heatmap to point the infected areas in map.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Section (Redesigned based on user's request) -->
+            <div id="portfolio-content" class="content-section p-4">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Portfolio</h2>
+                <div class="grid grid-cols-1 gap-6 text-gray-700">
+                    <!-- Project Card 1: BanaScan -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <!-- Placeholder image for the project -->
+                            <img src="https://placehold.co/100x100/0f172a/fff?text=BanaScan" alt="BanaScan App Thumbnail" class="w-24 h-24 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold mb-2 text-white">BanaScan</h3>
+                                <p class="text-sm text-gray-400 mb-3">Developed a user-friendly mobile application for farmers to proactively monitor and manage Bugtok disease in Cardava/Saba banana farms.</p>
+                                <a href="#" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 text-sm font-medium">Project Link &rarr;</a>
+                            </div>
+                        </div>
+                        <!-- Tags section at the bottom -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded-full">Flutter</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded-full">Application</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded-full">Python</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded-full">Firebase</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded-full">Dart</span>
+                            <span class="bg-gray-700 text-gray-300 text-xs font-medium px-2 py-1 rounded-full">Image Processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- This script handles the tab functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+        
+            // Function to handle the active state
+            function setActiveSection(targetId) {
+                // Remove 'active' class from all links and sections
+                navLinks.forEach(nav => {
+                    nav.classList.remove('active');
+                    const span = nav.querySelector('span');
+                    if (span) {
+                        span.style.transform = 'scaleX(0)';
+                    }
+                });
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                    section.classList.add('hidden'); // Hide all sections
+                });
+        
+                // Add 'active' class to the corresponding link and section
+                const activeLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+                const activeSection = document.getElementById(`${targetId}-content`);
+        
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    const span = activeLink.querySelector('span');
+                    if (span) {
+                        span.style.transform = 'scaleX(1)';
+                    }
+                }
+                if (activeSection) {
+                    activeSection.classList.remove('hidden');
+                    activeSection.classList.add('active');
+                }
+            }
+        
+            // Add click event listeners to all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    setActiveSection(targetId);
+                });
+            });
+        
+            // Set initial active section on page load
+            const initialHash = window.location.hash.substring(1) || 'about';
+            setActiveSection(initialHash);
+        });
+    </script>
+</body>
+</html>

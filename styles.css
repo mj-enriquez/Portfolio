@@ -1,0 +1,75 @@
+/*
+    This CSS file provides custom styles for the MJ M. Enriquez portfolio page.
+    It includes styling for the dynamic content sections, interactive elements,
+    and a smooth transition effect for the navigation bar.
+*/
+
+/* --- General Styling & Typography --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6; /* Light gray background */
+}
+
+/* --- Navigation Link Hover Effect --- */
+/* Base styles for the navigation links */
+.nav-link {
+    display: inline-block;
+    padding-bottom: 4px; /* Space for the underline */
+}
+
+/* Hide the underline by default */
+.nav-link span {
+    transform: scaleX(0);
+}
+
+/* Show the underline on hover */
+.nav-link:hover span,
+.nav-link.active span {
+    transform: scaleX(1);
+}
+
+/* --- Dynamic Content Section Management --- */
+/* Hide all content sections by default */
+.content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Show the active content section */
+.content-section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* --- Resume Timeline Styling (Vertical line) --- */
+.timeline-container {
+    position: relative;
+}
+
+.timeline-line {
+    left: 1.25rem; /* Equivalent to left-5 */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #d1d5db; /* gray-300 */
+}
+
+.timeline-circle {
+    z-index: 10;
+    background-color: #2563eb; /* blue-600 */
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.timeline-content {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    flex-grow: 1;
+}
